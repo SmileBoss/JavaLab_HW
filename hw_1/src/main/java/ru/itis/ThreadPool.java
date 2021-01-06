@@ -1,10 +1,12 @@
+package ru.itis;
+
 import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ThreadPool {
     private Deque<Runnable> tasks;
 
-    private PoolWorker[] pool;
+    PoolWorker[] pool;
 
     public ThreadPool(int threadsCount) {
         this.tasks = new ConcurrentLinkedDeque<>();
@@ -17,8 +19,8 @@ public class ThreadPool {
     }
 
 
-//    public static ThreadPool newPool(int threadsCount) {
-//        ThreadPool threadPool = new ThreadPool();
+//    public static ru.itis.ThreadPool newPool(int threadsCount) {
+//        ru.itis.ThreadPool threadPool = new ru.itis.ThreadPool();
 //        threadPool.tasks = new ConcurrentLinkedDeque<>();
 //        threadPool.pool = new PoolWorker[threadsCount];
 //
@@ -31,17 +33,28 @@ public class ThreadPool {
 
 
     public void submit(Runnable task){
-        tasks.offer(task);
+        synchronized (tasks) {
+            tasks.add(task);
+            tasks.notify();
+        }
     }
 
     private class PoolWorker extends Thread {
         @Override
         public void run() {
-            while (true){
-                Runnable nextTask = tasks.poll();
-                if (nextTask != null) {
-                    nextTask.run();
+            Runnable task;
+            while(true) {
+                synchronized (tasks) {
+                    while (tasks.isEmpty()) {
+                        try {
+                            tasks.wait();
+                        } catch (InterruptedException e) {
+                            throw new IllegalArgumentException(e);
+                        }
+                    }
+                    task = tasks.poll();
                 }
+                task.run();
             }
         }
     }

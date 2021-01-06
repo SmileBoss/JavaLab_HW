@@ -1,3 +1,5 @@
+package ru.itis;
+
 public class Main {
     public static void main(String[] args) {
         ThreadPool pool = new ThreadPool(3);
@@ -18,8 +20,6 @@ public class Main {
             System.out.println(Thread.currentThread().getName() + " C");
         }
     };
-
-
         pool.submit(task1);
         pool.submit(task2);
         pool.submit(task3);

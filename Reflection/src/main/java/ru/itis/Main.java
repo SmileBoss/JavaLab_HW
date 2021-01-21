@@ -12,11 +12,11 @@ public class Main {
         dataSource = applicationContext.getBean(DataSource.class);
 
         EntityManager manager = new EntityManager(dataSource);
-//        manager.createTable("account", User.class);
-//        System.out.println("-----------------");
-//
-//        User user = new User(1L, "Nikita", "SHIRMANOV", true);
-//        manager.save("account", user);
+        manager.createTable("account", User.class);
+        System.out.println("-----------------");
+
+        User user = new User(1L, "Nikita", "SHIRMANOV", true);
+        manager.save("account", user);
 
         manager.findById("account", User.class, Long.class, 1L);
 

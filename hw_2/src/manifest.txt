@@ -1,0 +1,1 @@
+ru.itis.ru.itis.Main-Class: ru.itis.pictures.app.Program

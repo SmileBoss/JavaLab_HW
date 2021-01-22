@@ -1,0 +1,72 @@
+body{
+  background: url(https://media.giphy.com/media/Zc0oJi9DTG4XC/giphy.gif);
+  background-size: cover;
+}
+
+h1{
+  font-family: Helvetica ;
+  color: aqua;
+  font-weight: bold;
+  margin: 200px 0px 0px 100px ;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 3px 2px #FFD700;
+  opacity: 1;
+  animation-name: blink;
+}
+
+.pageNotFound{
+  font-size: 40px ;
+  font-family: helvetica;
+
+  color: aquamarine;
+  margin: 100px 70px 300px 200px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 2px 2px white;
+  opacity: 1;
+}
+
+.blink {
+  -webkit-animation-name: blink;
+  -moz-animation-name: blink;
+  -o-animation-name: blink;
+  animation-name: blink;
+  -webktit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.blink-infinite {
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@-o-keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

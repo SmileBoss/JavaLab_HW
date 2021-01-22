@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login-style.css">
+    <meta name="viewport" content="width=auto">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="blurred-box">
+    <form action="/itis/Login" id="form-login" method="post">
+    <div class="user-login-box">
+        <span class="user-icon"></span>
+        <div class="user-name">Log In</div>
+<!--        <a class="text" >Email:</a>-->
+        <input class="user-password" type="email" name="email" required="required" placeholder="Email Address" />
+<!--        <a class="text">Password:</a>-->
+        <input class="user-password" type="password" name="pass" required="required" placeholder="Password" />
+
+        <button class="btn-submit" type="submit" form="form-login">Submit</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>

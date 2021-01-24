@@ -38,7 +38,7 @@ public class HtmlProcessor extends AbstractProcessor {
             Configuration configuration = new Configuration(Configuration.VERSION_2_3_30);
             configuration.setDefaultEncoding("UTF-8");
             try {
-                configuration.setTemplateLoader(new FileTemplateLoader(new File("\\src\\main\\resources\\")));
+                configuration.setTemplateLoader(new FileTemplateLoader(new File("/src/main/resources/")));
                 Template template = configuration.getTemplate("fr_form.htlh");
 
                 Map<String, Object> attributes = new HashMap<>();
